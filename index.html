@@ -9,70 +9,17 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Coiny&family=Poppins:wght@400;500;600;700&display=swap"
     rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        screens: {
-          'sm': '480px',
-          'sm1': '680px',
-          'md': '780px',
-          'md1': '868px',
-          'lg': '976px',
-          'xl': '1440px'
-        },
-        fontFamily: {
-          sans: ["Poppins", "sans-serif"],
-          title: ["Coiny", "cursive"]
-        },
+  <link rel="stylesheet" href="./dist/output.css">
 
-        extend: {},
-      },
-      plugins: [],
-    }
-  </script>
-  <style>
-    /* Utility classes */
-    @layer utilities {
-
-      .scroll::-webkit-scrollbar {
-        height: 8px;
-      }
-
-      .scroll::-webkit-scrollbar-track {
-        background-color: transparent;
-      }
-
-      /* #1c1917 */
-      .scroll::-webkit-scrollbar-thumb {
-        background-color: #d6d3d1;
-        border-radius: 100px;
-      }
-
-      .scroll::-webkit-scrollbar-thumb:hover {
-        background-color: #1c1917;
-      }
-
-      @media (max-width:680px) {
-        .nav {
-          position: absolute;
-          top: 16px;
-          left: 50%;
-          transform: translateX(-50%);
-
-        }
-      }
-    }
-  </style>
   <title>Product</title>
 </head>
 
-<body class="font-sans">
+<body class="font-sans scroll">
   <!-- Container -->
-  <div class="flex items-center justify-center w-full min-h-screen ">
+  <div class="flex w-full min-h-screen sm1:items-center sm1:justify-center sm1:px-4">
     <!-- Product Container -->
     <div
-      class="relative grid w-full h-full grid-cols-1 mx-auto mt-4 rounded-md shadow-md sm1:max-w-5xl sm1:grid-cols-2 bg-stone-50">
+      class="relative grid w-full h-full grid-cols-1 mx-auto rounded-md shadow-md sm1:mt-4 sm1:max-w-5xl sm1:grid-cols-2 bg-stone-50 ">
 
       <!-- IMAGES Container -->
       <div class="space-y-2 sm1:max-w-full">
@@ -82,14 +29,14 @@
         </div>
         <!-- other -->
         <div class="flex w-full h-24 gap-2 px-2 pb-2 overflow-x-scroll scroll flex-nowrap">
-          <img src="images/fashion-shoes-sneakers.jpg" alt="" class="object-cover w-24 rounded-md shadow-md ">
-          <img src="images/pic-2.webp" alt="" class="object-cover w-24 rounded-md shadow-md ">
           <img src="images/pic-1.webp" alt=""
             class="object-cover w-24 border-2 border-orange-300 rounded-md shadow-md ">
+          <img src="images/pic-2.webp" alt="" class="object-cover w-24 rounded-md shadow-md ">
           <img src="images/pic-3.webp" alt="" class="object-cover w-24 rounded-md shadow-md ">
           <img src="images/pic-4.webp" alt="" class="object-cover w-24 rounded-md shadow-md ">
           <img src="images/pic-5.webp" alt="" class="object-cover w-24 rounded-md shadow-md ">
           <img src="images/pic-6.avif" alt="" class="object-cover w-24 rounded-md shadow-md ">
+          <img src="images/pic-7.webp" alt="" class="object-cover w-24 rounded-md shadow-md ">
         </div>
       </div>
       <!-- DETAILS -->
@@ -527,14 +474,6 @@
             class="w-full px-5 py-3  sm1:py-2 text-xl font-bold sm1:mt-1 bg-orange-300 border rounded-md text-stone-50 hover:brightness-100 hover:shadow-md  hover:-translate-y-0.5 duration-300 ease-in-out md1:py-3 mt-2 md1:mt-2 ">
             Add To Cart
           </button>
-
-
-
-          <div class="text-sm text-center translate-y-8">
-            <span class="text-stone-300">Designed & Developed by</span>
-            <a href="https://www.github.com/tertcoder/" target="_blank"
-              class="font-semibold text-orange-300 underline ">Bon Tertius</a>
-          </div>
         </div>
       </div>
     </div>

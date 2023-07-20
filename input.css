@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .scroll::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+  }
+
+  .scroll::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  /* #1c1917 */
+  .scroll::-webkit-scrollbar-thumb {
+    background-color: #d6d3d1;
+    border-radius: 100px;
+  }
+
+  .scroll::-webkit-scrollbar-thumb:hover {
+    background-color: #1c1917;
+  }
+
+  @media (max-width: 680px) {
+    .nav {
+      position: absolute;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}

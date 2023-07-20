@@ -1,0 +1,12 @@
+{
+  "name": "wearshoes-product",
+  "version": "1.0.0",
+  "description": "A full stack product store using Javascript and Supabase",
+  "main": "script.js",
+  "scripts": {
+    "build": "tailwindcss -i ./input.css -o ./dist/output.css",
+    "watch": "tailwindcss -i ./input.css -o ./dist/output.css --watch"
+  },
+  "author": "",
+  "license": "ISC"
+}
