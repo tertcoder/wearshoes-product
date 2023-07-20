@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Coiny&family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        screens: {
+          'sm': '480px',
+          'sm1': '680px',
+          'md': '780px',
+          'md1': '868px',
+          'lg': '976px',
+          'xl': '1440px'
+        },
+        fontFamily: {
+          sans: ["Poppins", "sans-serif"],
+          title: ["Coiny", "cursive"]
+        },
+
+        extend: {},
+      },
+      plugins: [],
+    }
+  </script>
+  <style>
+    /* Utility classes */
+    @layer utilities {
+
+      .scroll::-webkit-scrollbar {
+        height: 8px;
+      }
+
+      .scroll::-webkit-scrollbar-track {
+        background-color: transparent;
+      }
+
+      /* #1c1917 */
+      .scroll::-webkit-scrollbar-thumb {
+        background-color: #d6d3d1;
+        border-radius: 100px;
+      }
+
+      .scroll::-webkit-scrollbar-thumb:hover {
+        background-color: #1c1917;
+      }
+
+      @media (max-width:680px) {
+        .nav {
+          position: absolute;
+          top: 16px;
+          left: 50%;
+          transform: translateX(-50%);
+
+        }
+      }
+    }
+  </style>
+  <title>Product</title>
+</head>
+
+<body class="font-sans">
+  <!-- Container -->
+  <div class="flex items-center justify-center w-full min-h-screen ">
+    <!-- Product Container -->
+    <div
+      class="relative grid w-full h-full grid-cols-1 mx-auto mt-4 rounded-md shadow-md sm1:max-w-5xl sm1:grid-cols-2 bg-stone-50">
+
+      <!-- IMAGES Container -->
+      <div class="space-y-2 sm1:max-w-full">
+        <!-- current image -->
+        <div class="rounded-md rounded-b-none rounded-r-none">
+          <img src="images/pic-1.webp" alt="" class="rounded-md rounded-b-none rounded-r-none">
+        </div>
+        <!-- other -->
+        <div class="flex w-full h-24 gap-2 px-2 pb-2 overflow-x-scroll scroll flex-nowrap">
+          <img src="images/fashion-shoes-sneakers.jpg" alt="" class="object-cover w-24 rounded-md shadow-md ">
+          <img src="images/pic-2.webp" alt="" class="object-cover w-24 rounded-md shadow-md ">
+          <img src="images/pic-1.webp" alt=""
+            class="object-cover w-24 border-2 border-orange-300 rounded-md shadow-md ">
+          <img src="images/pic-3.webp" alt="" class="object-cover w-24 rounded-md shadow-md ">
+          <img src="images/pic-4.webp" alt="" class="object-cover w-24 rounded-md shadow-md ">
+          <img src="images/pic-5.webp" alt="" class="object-cover w-24 rounded-md shadow-md ">
+          <img src="images/pic-6.avif" alt="" class="object-cover w-24 rounded-md shadow-md ">
+        </div>
+      </div>
+      <!-- DETAILS -->
+      <div class="flex flex-col justify-between p-8 sm1:p-5 md:p-10">
+        <!-- Heading -->
+        <div class="flex items-center justify-between w-11/12 nav md:w-full">
+          <span class="text-2xl font-bold tracking-wider text-orange-400 uppercase font-title">WearShoes</span>
+          <div class="flex items-center gap-4">
+            <div class="hidden p-2 rounded-full lg:block hover:bg-orange-200">
+              <svg class="w-6 h-6" version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" enable-background="new 0 0 64 64"
+                xml:space="preserve" fill="#f87171">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                  <path fill="class=" w-8="" h-8""=""
+                    d="M48,5c-4.418,0-8.418,1.791-11.313,4.687l-3.979,3.961c-0.391,0.391-1.023,0.391-1.414,0 c0,0-3.971-3.97-3.979-3.961C24.418,6.791,20.418,5,16,5C7.163,5,0,12.163,0,21c0,3.338,1.024,6.436,2.773,9 c0,0,0.734,1.164,1.602,2.031s24.797,24.797,24.797,24.797C29.953,57.609,30.977,58,32,58s2.047-0.391,2.828-1.172 c0,0,23.93-23.93,24.797-24.797S61.227,30,61.227,30C62.976,27.436,64,24.338,64,21C64,12.163,56.837,5,48,5z M57,22 c-0.553,0-1-0.447-1-1c0-4.418-3.582-8-8-8c-0.553,0-1-0.447-1-1s0.447-1,1-1c5.522,0,10,4.478,10,10C58,21.553,57.553,22,57,22z">
+                  </path>
+                </g>
+              </svg>
+            </div>
+            <div
+              class="flex items-center gap-2 border-2 border-orange-300 rounded-full cursor-pointer select-none bg-orange-50 group">
+              <div class="w-10 h-10 overflow-hidden rounded-full">
+                <img src="images/profile.png" alt="" class="group-hover:scale-[2.2] w-full scale-[2] duration-150 ">
+              </div>
+              <span class="pr-2 font-semibold text-orange-300">Profile</span>
+            </div>
+          </div>
+        </div>
+        <!-- Product information -->
+        <div>
+          <div class="flex items-center justify-between">
+            <span class="block px-2 py-1 text-xs font-bold bg-red-400 border rounded-full animate-pulse text-stone-100">
+              NEW
+            </span>
+            <!-- not liked -->
+            <svg class="w-8 h-8" version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink" width="189px" height="189px" viewBox="0 0 64.00 64.00"
+              enable-background="new 0 0 64 64" xml:space="preserve" fill="#f87171" stroke="#f87171"
+              stroke-width="0.768">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <g>
+                  <path fill="#f87171"
+                    d="M48,6c-4.418,0-8.418,1.791-11.313,4.687l-3.979,3.961c-0.391,0.391-1.023,0.391-1.414,0 c0,0-3.971-3.97-3.979-3.961C24.418,7.791,20.418,6,16,6C7.163,6,0,13.163,0,22c0,3.338,1.024,6.436,2.773,9 c0,0,0.734,1.164,1.602,2.031s24.797,24.797,24.797,24.797C29.953,58.609,30.977,59,32,59s2.047-0.391,2.828-1.172 c0,0,23.93-23.93,24.797-24.797S61.227,31,61.227,31C62.976,28.436,64,25.338,64,22C64,13.163,56.837,6,48,6z M58.714,30.977 c0,0-0.612,0.75-1.823,1.961S33.414,56.414,33.414,56.414C33.023,56.805,32.512,57,32,57s-1.023-0.195-1.414-0.586 c0,0-22.266-22.266-23.477-23.477s-1.823-1.961-1.823-1.961C3.245,28.545,2,25.424,2,22C2,14.268,8.268,8,16,8 c3.866,0,7.366,1.566,9.899,4.101l0.009-0.009l4.678,4.677c0.781,0.781,2.047,0.781,2.828,0l4.678-4.677l0.009,0.009 C40.634,9.566,44.134,8,48,8c7.732,0,14,6.268,14,14C62,25.424,60.755,28.545,58.714,30.977z">
+                  </path>
+                  <path fill="#f87171"
+                    d="M48,12c-0.553,0-1,0.447-1,1s0.447,1,1,1c4.418,0,8,3.582,8,8c0,0.553,0.447,1,1,1s1-0.447,1-1 C58,16.478,53.522,12,48,12z">
+                  </path>
+                </g>
+              </g>
+            </svg>
+            <!-- liked -->
+            <svg hidden class="w-8 h-8" version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" enable-background="new 0 0 64 64"
+              xml:space="preserve" fill="#f87171">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <path fill="class=" w-8="" h-8""=""
+                  d="M48,5c-4.418,0-8.418,1.791-11.313,4.687l-3.979,3.961c-0.391,0.391-1.023,0.391-1.414,0 c0,0-3.971-3.97-3.979-3.961C24.418,6.791,20.418,5,16,5C7.163,5,0,12.163,0,21c0,3.338,1.024,6.436,2.773,9 c0,0,0.734,1.164,1.602,2.031s24.797,24.797,24.797,24.797C29.953,57.609,30.977,58,32,58s2.047-0.391,2.828-1.172 c0,0,23.93-23.93,24.797-24.797S61.227,30,61.227,30C62.976,27.436,64,24.338,64,21C64,12.163,56.837,5,48,5z M57,22 c-0.553,0-1-0.447-1-1c0-4.418-3.582-8-8-8c-0.553,0-1-0.447-1-1s0.447-1,1-1c5.522,0,10,4.478,10,10C58,21.553,57.553,22,57,22z">
+                </path>
+              </g>
+            </svg>
+          </div>
+          <p class="mt-2 text-lg sm1:text-base md1:text-lg text-stone-500">Nike brand</p>
+          <h1 class="text-3xl font-semibold tracking-tight sm1:text-2xl md1:text-3xl text-stone-900 ">Fun Air Jordan For
+            Men</h1>
+
+          <div class="relative flex mt-2">
+            <span class="text-base sm1:text-sm md1:text-base text-stone-500">4.5 </span>
+            <div class="flex -space-x-1">
+              <svg class="w-5 h-5 sm1:w-4 sm1:h-4 md1:w-5 md1:h-5" fill="#fb923c" viewBox="0 0 64 64" version="1.1"
+                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
+                xmlns:serif="http://www.serif.com/"
+                style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;" stroke="#fb923c">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                  <rect id="Icons" x="-512" y="-192" width="1280" height="800" style="fill:none;"></rect>
+                  <g id="Icons1" serif:id="Icons">
+                    <g id="Strike"> </g>
+                    <g id="H1"> </g>
+                    <g id="H2"> </g>
+                    <g id="H3"> </g>
+                    <g id="list-ul"> </g>
+                    <g id="hamburger-1"> </g>
+                    <g id="hamburger-2"> </g>
+                    <g id="list-ol"> </g>
+                    <g id="list-task"> </g>
+                    <g id="trash"> </g>
+                    <g id="vertical-menu"> </g>
+                    <g id="horizontal-menu"> </g>
+                    <g id="sidebar-2"> </g>
+                    <g id="Pen"> </g>
+                    <g id="Pen1" serif:id="Pen"> </g>
+                    <g id="clock"> </g>
+                    <g id="external-link"> </g>
+                    <g id="hr"> </g>
+                    <g id="info"> </g>
+                    <g id="warning"> </g>
+                    <g id="plus-circle"> </g>
+                    <g id="minus-circle"> </g>
+                    <g id="vue"> </g>
+                    <g id="cog"> </g>
+                    <g id="logo"> </g>
+                    <path id="star"
+                      d="M32.001,9.188l5.666,17.438l18.335,0l-14.833,10.777l5.666,17.438l-14.834,-10.777l-14.833,10.777l5.666,-17.438l-14.834,-10.777l18.335,0l5.666,-17.438Z">
+                    </path>
+                    <g id="radio-check"> </g>
+                    <g id="eye-slash"> </g>
+                    <g id="eye"> </g>
+                    <g id="toggle-off"> </g>
+                    <g id="shredder"> </g>
+                    <g id="spinner--loading--dots-" serif:id="spinner [loading, dots]"> </g>
+                    <g id="react"> </g>
+                    <g id="check-selected"> </g>
+                    <g id="turn-off"> </g>
+                    <g id="code-block"> </g>
+                    <g id="user"> </g>
+                    <g id="coffee-bean"> </g>
+                    <g id="coffee-beans">
+                      <g id="coffee-bean1" serif:id="coffee-bean"> </g>
+                    </g>
+                    <g id="coffee-bean-filled"> </g>
+                    <g id="coffee-beans-filled">
+                      <g id="coffee-bean2" serif:id="coffee-bean"> </g>
+                    </g>
+                    <g id="clipboard"> </g>
+                    <g id="clipboard-paste"> </g>
+                    <g id="clipboard-copy"> </g>
+                    <g id="Layer1"> </g>
+                  </g>
+                </g>
+              </svg>
+              <svg class="w-5 h-5 sm1:w-4 sm1:h-4 md1:w-5 md1:h-5 " fill="#fb923c" viewBox="0 0 64 64" version="1.1"
+                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
+                xmlns:serif="http://www.serif.com/"
+                style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;" stroke="#fb923c">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                  <rect id="Icons" x="-512" y="-192" width="1280" height="800" style="fill:none;"></rect>
+                  <g id="Icons1" serif:id="Icons">
+                    <g id="Strike"> </g>
+                    <g id="H1"> </g>
+                    <g id="H2"> </g>
+                    <g id="H3"> </g>
+                    <g id="list-ul"> </g>
+                    <g id="hamburger-1"> </g>
+                    <g id="hamburger-2"> </g>
+                    <g id="list-ol"> </g>
+                    <g id="list-task"> </g>
+                    <g id="trash"> </g>
+                    <g id="vertical-menu"> </g>
+                    <g id="horizontal-menu"> </g>
+                    <g id="sidebar-2"> </g>
+                    <g id="Pen"> </g>
+                    <g id="Pen1" serif:id="Pen"> </g>
+                    <g id="clock"> </g>
+                    <g id="external-link"> </g>
+                    <g id="hr"> </g>
+                    <g id="info"> </g>
+                    <g id="warning"> </g>
+                    <g id="plus-circle"> </g>
+                    <g id="minus-circle"> </g>
+                    <g id="vue"> </g>
+                    <g id="cog"> </g>
+                    <g id="logo"> </g>
+                    <path id="star"
+                      d="M32.001,9.188l5.666,17.438l18.335,0l-14.833,10.777l5.666,17.438l-14.834,-10.777l-14.833,10.777l5.666,-17.438l-14.834,-10.777l18.335,0l5.666,-17.438Z">
+                    </path>
+                    <g id="radio-check"> </g>
+                    <g id="eye-slash"> </g>
+                    <g id="eye"> </g>
+                    <g id="toggle-off"> </g>
+                    <g id="shredder"> </g>
+                    <g id="spinner--loading--dots-" serif:id="spinner [loading, dots]"> </g>
+                    <g id="react"> </g>
+                    <g id="check-selected"> </g>
+                    <g id="turn-off"> </g>
+                    <g id="code-block"> </g>
+                    <g id="user"> </g>
+                    <g id="coffee-bean"> </g>
+                    <g id="coffee-beans">
+                      <g id="coffee-bean1" serif:id="coffee-bean"> </g>
+                    </g>
+                    <g id="coffee-bean-filled"> </g>
+                    <g id="coffee-beans-filled">
+                      <g id="coffee-bean2" serif:id="coffee-bean"> </g>
+                    </g>
+                    <g id="clipboard"> </g>
+                    <g id="clipboard-paste"> </g>
+                    <g id="clipboard-copy"> </g>
+                    <g id="Layer1"> </g>
+                  </g>
+                </g>
+              </svg>
+              <svg class="w-5 h-5 sm1:w-4 sm1:h-4 md1:w-5 md1:h-5 " fill="#fb923c" viewBox="0 0 64 64" version="1.1"
+                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
+                xmlns:serif="http://www.serif.com/"
+                style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;" stroke="#fb923c">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                  <rect id="Icons" x="-512" y="-192" width="1280" height="800" style="fill:none;"></rect>
+                  <g id="Icons1" serif:id="Icons">
+                    <g id="Strike"> </g>
+                    <g id="H1"> </g>
+                    <g id="H2"> </g>
+                    <g id="H3"> </g>
+                    <g id="list-ul"> </g>
+                    <g id="hamburger-1"> </g>
+                    <g id="hamburger-2"> </g>
+                    <g id="list-ol"> </g>
+                    <g id="list-task"> </g>
+                    <g id="trash"> </g>
+                    <g id="vertical-menu"> </g>
+                    <g id="horizontal-menu"> </g>
+                    <g id="sidebar-2"> </g>
+                    <g id="Pen"> </g>
+                    <g id="Pen1" serif:id="Pen"> </g>
+                    <g id="clock"> </g>
+                    <g id="external-link"> </g>
+                    <g id="hr"> </g>
+                    <g id="info"> </g>
+                    <g id="warning"> </g>
+                    <g id="plus-circle"> </g>
+                    <g id="minus-circle"> </g>
+                    <g id="vue"> </g>
+                    <g id="cog"> </g>
+                    <g id="logo"> </g>
+                    <path id="star"
+                      d="M32.001,9.188l5.666,17.438l18.335,0l-14.833,10.777l5.666,17.438l-14.834,-10.777l-14.833,10.777l5.666,-17.438l-14.834,-10.777l18.335,0l5.666,-17.438Z">
+                    </path>
+                    <g id="radio-check"> </g>
+                    <g id="eye-slash"> </g>
+                    <g id="eye"> </g>
+                    <g id="toggle-off"> </g>
+                    <g id="shredder"> </g>
+                    <g id="spinner--loading--dots-" serif:id="spinner [loading, dots]"> </g>
+                    <g id="react"> </g>
+                    <g id="check-selected"> </g>
+                    <g id="turn-off"> </g>
+                    <g id="code-block"> </g>
+                    <g id="user"> </g>
+                    <g id="coffee-bean"> </g>
+                    <g id="coffee-beans">
+                      <g id="coffee-bean1" serif:id="coffee-bean"> </g>
+                    </g>
+                    <g id="coffee-bean-filled"> </g>
+                    <g id="coffee-beans-filled">
+                      <g id="coffee-bean2" serif:id="coffee-bean"> </g>
+                    </g>
+                    <g id="clipboard"> </g>
+                    <g id="clipboard-paste"> </g>
+                    <g id="clipboard-copy"> </g>
+                    <g id="Layer1"> </g>
+                  </g>
+                </g>
+              </svg>
+              <svg class="w-5 h-5 sm1:w-4 sm1:h-4 md1:w-5 md1:h-5 " fill="#fb923c" viewBox="0 0 64 64" version="1.1"
+                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
+                xmlns:serif="http://www.serif.com/"
+                style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;" stroke="#fb923c">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                  <rect id="Icons" x="-512" y="-192" width="1280" height="800" style="fill:none;"></rect>
+                  <g id="Icons1" serif:id="Icons">
+                    <g id="Strike"> </g>
+                    <g id="H1"> </g>
+                    <g id="H2"> </g>
+                    <g id="H3"> </g>
+                    <g id="list-ul"> </g>
+                    <g id="hamburger-1"> </g>
+                    <g id="hamburger-2"> </g>
+                    <g id="list-ol"> </g>
+                    <g id="list-task"> </g>
+                    <g id="trash"> </g>
+                    <g id="vertical-menu"> </g>
+                    <g id="horizontal-menu"> </g>
+                    <g id="sidebar-2"> </g>
+                    <g id="Pen"> </g>
+                    <g id="Pen1" serif:id="Pen"> </g>
+                    <g id="clock"> </g>
+                    <g id="external-link"> </g>
+                    <g id="hr"> </g>
+                    <g id="info"> </g>
+                    <g id="warning"> </g>
+                    <g id="plus-circle"> </g>
+                    <g id="minus-circle"> </g>
+                    <g id="vue"> </g>
+                    <g id="cog"> </g>
+                    <g id="logo"> </g>
+                    <path id="star"
+                      d="M32.001,9.188l5.666,17.438l18.335,0l-14.833,10.777l5.666,17.438l-14.834,-10.777l-14.833,10.777l5.666,-17.438l-14.834,-10.777l18.335,0l5.666,-17.438Z">
+                    </path>
+                    <g id="radio-check"> </g>
+                    <g id="eye-slash"> </g>
+                    <g id="eye"> </g>
+                    <g id="toggle-off"> </g>
+                    <g id="shredder"> </g>
+                    <g id="spinner--loading--dots-" serif:id="spinner [loading, dots]"> </g>
+                    <g id="react"> </g>
+                    <g id="check-selected"> </g>
+                    <g id="turn-off"> </g>
+                    <g id="code-block"> </g>
+                    <g id="user"> </g>
+                    <g id="coffee-bean"> </g>
+                    <g id="coffee-beans">
+                      <g id="coffee-bean1" serif:id="coffee-bean"> </g>
+                    </g>
+                    <g id="coffee-bean-filled"> </g>
+                    <g id="coffee-beans-filled">
+                      <g id="coffee-bean2" serif:id="coffee-bean"> </g>
+                    </g>
+                    <g id="clipboard"> </g>
+                    <g id="clipboard-paste"> </g>
+                    <g id="clipboard-copy"> </g>
+                    <g id="Layer1"> </g>
+                  </g>
+                </g>
+              </svg>
+              <svg class="w-5 h-5 sm1:w-4 sm1:h-4 md1:w-5 md1:h-5 " fill="#fb923c" viewBox="0 0 64 64" version="1.1"
+                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
+                xmlns:serif="http://www.serif.com/"
+                style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;" stroke="#fb923c">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                  <rect id="Icons" x="-512" y="-192" width="1280" height="800" style="fill:none;"></rect>
+                  <g id="Icons1" serif:id="Icons">
+                    <g id="Strike"> </g>
+                    <g id="H1"> </g>
+                    <g id="H2"> </g>
+                    <g id="H3"> </g>
+                    <g id="list-ul"> </g>
+                    <g id="hamburger-1"> </g>
+                    <g id="hamburger-2"> </g>
+                    <g id="list-ol"> </g>
+                    <g id="list-task"> </g>
+                    <g id="trash"> </g>
+                    <g id="vertical-menu"> </g>
+                    <g id="horizontal-menu"> </g>
+                    <g id="sidebar-2"> </g>
+                    <g id="Pen"> </g>
+                    <g id="Pen1" serif:id="Pen"> </g>
+                    <g id="clock"> </g>
+                    <g id="external-link"> </g>
+                    <g id="hr"> </g>
+                    <g id="info"> </g>
+                    <g id="warning"> </g>
+                    <g id="plus-circle"> </g>
+                    <g id="minus-circle"> </g>
+                    <g id="vue"> </g>
+                    <g id="cog"> </g>
+                    <g id="logo"> </g>
+                    <path id="star"
+                      d="M32.001,9.188l5.666,17.438l18.335,0l-14.833,10.777l5.666,17.438l-14.834,-10.777l-14.833,10.777l5.666,-17.438l-14.834,-10.777l18.335,0l5.666,-17.438Z">
+                    </path>
+                    <g id="radio-check"> </g>
+                    <g id="eye-slash"> </g>
+                    <g id="eye"> </g>
+                    <g id="toggle-off"> </g>
+                    <g id="shredder"> </g>
+                    <g id="spinner--loading--dots-" serif:id="spinner [loading, dots]"> </g>
+                    <g id="react"> </g>
+                    <g id="check-selected"> </g>
+                    <g id="turn-off"> </g>
+                    <g id="code-block"> </g>
+                    <g id="user"> </g>
+                    <g id="coffee-bean"> </g>
+                    <g id="coffee-beans">
+                      <g id="coffee-bean1" serif:id="coffee-bean"> </g>
+                    </g>
+                    <g id="coffee-bean-filled"> </g>
+                    <g id="coffee-beans-filled">
+                      <g id="coffee-bean2" serif:id="coffee-bean"> </g>
+                    </g>
+                    <g id="clipboard"> </g>
+                    <g id="clipboard-paste"> </g>
+                    <g id="clipboard-copy"> </g>
+                    <g id="Layer1"> </g>
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <a href="#"
+              class="absolute text-sm underline duration-150 translate-y-6 sm1:text-xs md1:text-sm text-stone-400 hover:text-stone-500">Rate
+              now</a>
+          </div>
+          <div class="mt-10 mb-8 price lg:mb-8 lg:mt-10">
+            <span class="text-xl font-semibold sm1:text-lg md1:text-xl text-stone-900">$</span>
+            <span class="text-6xl font-bold sm1:text-4xl text-stone-900 md1:text-6xl">150</span>
+          </div>
+
+          <div class="mb-3 sm1:mb-6">
+            <p class="text-stone-500">Size</p>
+            <div class="flex w-full gap-2 py-2 overflow-x-scroll sm1:max-w-lg flex-nowrap scroll">
+              <div
+                class="px-4 py-2 font-semibold duration-150 border-2 border-orange-300 rounded-md shadow-sm cursor-pointer select-none text-stone-900">
+                AAA</div>
+              <div
+                class="px-4 py-2 font-semibold duration-150 border-2 rounded-md shadow-sm cursor-pointer select-none border-stone-200 text-stone-900 hover:border-2 hover:border-orange-300">
+                AA</div>
+              <div
+                class="px-4 py-2 font-semibold duration-150 border-2 rounded-md shadow-sm cursor-pointer select-none border-stone-200 text-stone-900 hover:border-2 hover:border-orange-300">
+                A</div>
+              <div
+                class="px-4 py-2 font-semibold duration-150 border-2 rounded-md shadow-sm cursor-pointer select-none border-stone-200 text-stone-900 hover:border-2 hover:border-orange-300">
+                B</div>
+              <div
+                class="px-4 py-2 font-semibold duration-150 border-2 rounded-md shadow-sm cursor-pointer select-none border-stone-200 text-stone-900 hover:border-2 hover:border-orange-300">
+                C</div>
+              <div
+                class="px-4 py-2 font-semibold duration-150 border-2 rounded-md shadow-sm cursor-pointer select-none border-stone-200 text-stone-900 hover:border-2 hover:border-orange-300">
+                D</div>
+              <div
+                class="px-4 py-2 font-semibold duration-150 border-2 rounded-md shadow-sm cursor-pointer select-none border-stone-200 text-stone-900 hover:border-2 hover:border-orange-300">
+                E</div>
+              <div
+                class="px-4 py-2 font-semibold duration-150 border-2 rounded-md shadow-sm cursor-pointer select-none border-stone-200 text-stone-900 hover:border-2 hover:border-orange-300">
+                EE</div>
+              <div
+                class="px-4 py-2 font-semibold duration-150 border-2 rounded-md shadow-sm cursor-pointer select-none border-stone-200 text-stone-900 hover:border-2 hover:border-orange-300">
+                EEE</div>
+            </div>
+          </div>
+
+          <button
+            class="w-full px-5 py-3  sm1:py-2 text-xl font-bold sm1:mt-1 bg-orange-300 border rounded-md text-stone-50 hover:brightness-100 hover:shadow-md  hover:-translate-y-0.5 duration-300 ease-in-out md1:py-3 mt-2 md1:mt-2 ">
+            Add To Cart
+          </button>
+
+
+
+          <div class="text-sm text-center translate-y-8">
+            <span class="text-stone-300">Designed & Developed by</span>
+            <a href="https://www.github.com/tertcoder/" target="_blank"
+              class="font-semibold text-orange-300 underline ">Bon Tertius</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
