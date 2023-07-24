@@ -57,6 +57,6 @@ export const products = [
     rating: 3.6,
     price: 175,
     new: true,
-    isLiked: false,
+    isLiked: true,
   },
 ];
