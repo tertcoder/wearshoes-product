@@ -27,7 +27,7 @@ export const products = [
     rating: 4.0,
     price: 175,
     new: true,
-    isLiked: true,
+    isLiked: false,
   },
   {
     id: "04",
@@ -57,6 +57,6 @@ export const products = [
     rating: 3.6,
     price: 175,
     new: true,
-    isLiked: true,
+    isLiked: false,
   },
 ];

@@ -5,7 +5,7 @@ const currentProductImage = document.querySelector(".currentProductImage");
 const productInfoContainer = document.querySelector(".product-info");
 
 let current;
-let likedProduct = products.filter((el) => el.isLiked === true);
+let likedProduct = products.filter((el) => el.isLiked === true) || [];
 console.log(likedProduct);
 // let currentId;
 // console.log(current);
@@ -27,55 +27,52 @@ function renderCurrentImage(current) {
     `;
   currentProductImage.insertAdjacentHTML("afterbegin", image);
 }
-function renderCurrentProduct(id) {
+function renderCurrentProduct(id = 1) {
   current = products.find((el) => el.id === id);
-  const isLiked = likedProduct.find((el) => el.id === id);
+  // const isLiked = likedProduct.find((el) => el.id === id);
   productInfoContainer.innerHTML = "";
   renderCurrentImage(current);
   const prodInfo = `
-          <div class="flex items-center justify-between ">
-            <span
-              class="block px-2 py-1 text-xs font-bold border-2 border-orange-400 rounded-full ">${
-                current.new ? "NEW" : "Out of Stock"
-              }</span>
-
-            <div class="relative w-8 h-8 fav" id=${current.id}>
-           
-              <img src="./images/${
-                isLiked?.isLiked ? "" : "non"
-              }like.svg" class="duration-150 w-8 h-8 favSVG" alt=""></img>
-            
-            </div>
-          </div>
-
-          <p class="mt-2 text-lg brand md:text-base md1:text-lg text-stone-500">${
-            current.brand
-          }</p>
-          <h1 class="text-3xl font-semibold tracking-tight name md:text-2xl md1:text-3xl text-stone-900 ">${
-            current.name
-          }</h1>
-
-          <div class="relative flex mt-2">
-            <span class="text-base rating md:text-sm md1:text-base text-stone-500">${
-              current.rating
-            } </span>
-            <div class="flex -space-x-1">
-              <img src="./images/star.svg" alt="" class="w-5 h-5 md:w-4 md:h-4 md1:w-5 md1:h-5">
-              <img src="./images/star.svg" alt="" class="w-5 h-5 md:w-4 md:h-4 md1:w-5 md1:h-5">
-              <img src="./images/star.svg" alt="" class="w-5 h-5 md:w-4 md:h-4 md1:w-5 md1:h-5">
-              <img src="./images/star.svg" alt="" class="w-5 h-5 md:w-4 md:h-4 md1:w-5 md1:h-5">
-              <img src="./images/star.svg" alt="" class="w-5 h-5 md:w-4 md:h-4 md1:w-5 md1:h-5">
-            </div>
-            <a href="#"
-              class="absolute text-sm underline duration-150 translate-y-6 md:text-xs md1:text-sm text-stone-400 hover:text-stone-500">Rate
-              now</a>
-          </div>
-          <div class="mt-10 mb-4 price lg:mb-4 lg:mt-10">
-            <span class="text-xl font-semibold md:text-lg md1:text-xl text-stone-900">$</span>
-            <span class="text-6xl font-bold md:text-4xl text-stone-900 md1:text-6xl pricing">${
-              current.price
-            }</span>
-          </div>
+    <div class="flex items-center justify-between ">
+      <span
+        class="block px-2 py-1 text-xs text-orange-400 font-bold border-2 border-orange-400 rounded-full ">${
+          current.new ? "NEW" : "Out of Stock"
+        }</span>
+      <div class="relative w-8 h-8 fav" id=${current.id}>
+     
+        <img src="./images/${
+          current.isLiked ? "" : "non"
+        }like.svg" class="duration-150 w-8 h-8 favSVG" alt=""></img>
+      
+      </div>
+    </div>
+    <p class="mt-2 text-lg brand md:text-base md1:text-lg text-stone-500">${
+      current.brand
+    }</p>
+    <h1 class="text-3xl font-semibold tracking-tight name md:text-2xl md1:text-3xl text-stone-900 ">${
+      current.name
+    }</h1>
+    <div class="relative flex mt-2">
+      <span class="text-base rating md:text-sm md1:text-base text-stone-500">${
+        current.rating
+      } </span>
+      <div class="flex -space-x-1">
+        <img src="./images/star.svg" alt="" class="w-5 h-5 md:w-4 md:h-4 md1:w-5 md1:h-5"/>
+        <img src="./images/star.svg" alt="" class="w-5 h-5 md:w-4 md:h-4 md1:w-5 md1:h-5"/>
+        <img src="./images/star.svg" alt="" class="w-5 h-5 md:w-4 md:h-4 md1:w-5 md1:h-5"/>
+        <img src="./images/star.svg" alt="" class="w-5 h-5 md:w-4 md:h-4 md1:w-5 md1:h-5"/>
+        <img src="./images/star.svg" alt="" class="w-5 h-5 md:w-4 md:h-4 md1:w-5 md1:h-5"/>
+      </div>
+      <a href="#"
+        class="absolute text-sm underline duration-150 translate-y-6 md:text-xs md1:text-sm text-stone-400 hover:text-stone-500">Rate
+        now</a>
+    </div>
+    <div class="mt-10 mb-4 price lg:mb-4 lg:mt-10">
+      <span class="text-xl font-semibold md:text-lg md1:text-xl text-stone-900">$</span>
+      <span class="text-6xl font-bold md:text-4xl text-stone-900 md1:text-6xl pricing">${
+        current.price
+      }</span>
+    </div>
   `;
   productInfoContainer.insertAdjacentHTML("afterbegin", prodInfo);
 }
@@ -84,24 +81,23 @@ function toggleLikedProduct(current) {
   if (current.isLiked) likedProduct.push(current);
   else {
     const index = likedProduct.findIndex((el) => el.id === current.id);
-    if (index !== -1) likedProduct.splice(index, 1);
+    if (!(index == 1)) likedProduct.splice(index, 1);
   }
+  localStorage.setItem("likedProduct", JSON.stringify(likedProduct));
   console.log(likedProduct);
 }
-
 function addLikedProduct(current) {
   productInfoContainer.addEventListener("click", (e) => {
-    const clicked = e.target.closest(".favSVG");
+    const clicked = e.target.closest(".fav");
     if (!clicked) return;
     current.isLiked = !current.isLiked;
-    toggleLikedProduct(current);
     toggleLoveBtn(current);
+    toggleLikedProduct(current);
   });
 }
 
 function toggleLoveBtn(current) {
   const loveBtn = productInfoContainer.querySelector(".fav");
-  console.log(loveBtn);
   const loveSvg = loveBtn.querySelector("img");
   loveSvg.src = `./images/${current.isLiked ? "" : "non"}like.svg`;
 }
@@ -121,6 +117,11 @@ function onLoad() {
   const id = JSON.parse(localStorage.getItem("currentId"));
   renderCurrentProduct(id);
   addLikedProduct(current);
+}
+function loadLikedProducts() {
+  const savedProduct = localStorage.getItem("likedProduct");
+  if (!savedProduct) return;
+  likedProduct = JSON.parse(savedProduct);
 }
 renderProductBar();
 onLoad();
