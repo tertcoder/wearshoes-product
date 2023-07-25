@@ -6,9 +6,8 @@ const productInfoContainer = document.querySelector(".product-info");
 
 let current;
 let likedProduct = products.filter((el) => el.isLiked === true) || [];
-console.log(products);
-// let currentId;
-// console.log(current);
+
+// Adding the product images bar on the page
 function renderProductBar() {
   productBar.innerHTML = "";
   const element = products
@@ -20,6 +19,8 @@ function renderProductBar() {
     .join("");
   productBar.insertAdjacentHTML("afterbegin", element);
 }
+
+// Adding the current Image of the product selected on the page
 function renderCurrentImage(current) {
   currentProductImage.innerHTML = "";
   const image = `
@@ -27,11 +28,12 @@ function renderCurrentImage(current) {
     `;
   currentProductImage.insertAdjacentHTML("afterbegin", image);
 }
+
+// Adding information about the current product selected  and calling the function to render the current image
 function renderCurrentProduct(id = 1) {
   console.log(id);
   productInfoContainer.innerHTML = "";
   current = products.find((el) => el.id === id);
-  // const isLiked = likedProduct.find((el) => el.id === id);
   renderCurrentImage(current);
   const prodInfo = `
     <div class="flex items-center justify-between ">
@@ -78,6 +80,7 @@ function renderCurrentProduct(id = 1) {
   productInfoContainer.insertAdjacentHTML("afterbegin", prodInfo);
 }
 
+// Add and Remove bookmarked product from array likedProduct then save anytime in localStorage
 function toggleLikedProduct(current) {
   if (current.isLiked) likedProduct.push(current);
   else {
@@ -86,6 +89,8 @@ function toggleLikedProduct(current) {
   }
   localStorage.setItem("likedProduct", JSON.stringify(likedProduct));
 }
+
+// Making functional the two function toggleLikedProduct() & toggleLoveBtn() on every click to the bookmark btn
 function addLikedProduct(current) {
   productInfoContainer.addEventListener("click", (e) => {
     const clicked = e.target.closest(".fav");
@@ -97,16 +102,18 @@ function addLikedProduct(current) {
   });
 }
 
+// Change bookmark icon
 function toggleLoveBtn(current) {
   const loveBtn = productInfoContainer.querySelector(".fav");
   const loveSvg = loveBtn.querySelector("img");
   loveSvg.src = `./images/${current.isLiked ? "" : "non"}like.svg`;
 }
 
+// Making functional the function renderCurrentProduct() to every click to the element from the product bar
 function showCurrentProduct(e) {
   const clickedEl = e.target.closest("#product");
   if (!clickedEl) return;
-  const currentId = +clickedEl.dataset.id;
+  const currentId = clickedEl.dataset.id;
   localStorage.setItem("currentId", JSON.stringify(currentId));
   renderCurrentProduct(currentId);
 }
@@ -118,11 +125,6 @@ function onLoad() {
   const id = JSON.parse(localStorage.getItem("currentId"));
   renderCurrentProduct(id);
   addLikedProduct(current);
-}
-function loadLikedProducts() {
-  const savedProduct = localStorage.getItem("likedProduct");
-  if (!savedProduct) return;
-  likedProduct = JSON.parse(savedProduct);
 }
 renderProductBar();
 onLoad();
