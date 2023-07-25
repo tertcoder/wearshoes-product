@@ -31,7 +31,6 @@ function renderCurrentImage(current) {
 
 // Adding information about the current product selected  and calling the function to render the current image
 function renderCurrentProduct(id = "01") {
-  console.log(id);
   productInfoContainer.innerHTML = "";
   current = products.find((el) => el.id === id);
   renderCurrentImage(current);
@@ -95,7 +94,6 @@ function addLikedProduct(current) {
   productInfoContainer.addEventListener("click", (e) => {
     const clicked = e.target.closest(".fav");
     if (!clicked) return;
-    console.log(current);
     current.isLiked = !current.isLiked;
     toggleLoveBtn(current);
     toggleLikedProduct(current);
@@ -114,7 +112,6 @@ function showCurrentProduct(e) {
   const clickedEl = e.target.closest("#product");
   if (!clickedEl) return;
   const currentId = clickedEl.dataset.id;
-  console.log(currentId);
   localStorage.setItem("currentId", JSON.stringify(currentId));
   renderCurrentProduct(currentId);
 }
