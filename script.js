@@ -27,10 +27,10 @@ function renderCurrentImage(current) {
     `;
   currentProductImage.insertAdjacentHTML("afterbegin", image);
 }
-function renderCurrentProduct(id = 3) {
+function renderCurrentProduct(id = 1) {
   console.log(id);
   productInfoContainer.innerHTML = "";
-  current = products.find((el) => el.id === +id);
+  current = products.find((el) => el.id === id);
   // const isLiked = likedProduct.find((el) => el.id === id);
   renderCurrentImage(current);
   const prodInfo = `
@@ -106,7 +106,7 @@ function toggleLoveBtn(current) {
 function showCurrentProduct(e) {
   const clickedEl = e.target.closest("#product");
   if (!clickedEl) return;
-  const currentId = clickedEl.dataset.id;
+  const currentId = +clickedEl.dataset.id;
   localStorage.setItem("currentId", JSON.stringify(currentId));
   renderCurrentProduct(currentId);
 }
