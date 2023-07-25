@@ -1,6 +1,6 @@
 export const products = [
   {
-    id: +"01",
+    id: "01",
     name: "Air Jordan 1 - in orange for men",
     image: "./images/pic-1.png",
     brand: "Nike brand",
@@ -10,7 +10,7 @@ export const products = [
     isLiked: false,
   },
   {
-    id: +"02",
+    id: "02",
     name: "Air Jordan 1 - in yellow",
     image: "./images/pic-2.png",
     brand: "Nike brand",
@@ -20,7 +20,7 @@ export const products = [
     isLiked: false,
   },
   {
-    id: +"03",
+    id: "03",
     name: " PUMA Carina – Dynamic And Youthful",
     image: "./images/pic-3.png",
     brand: "Puma brand",
@@ -30,7 +30,7 @@ export const products = [
     isLiked: false,
   },
   {
-    id: +"04",
+    id: "04",
     name: " Reebok Club C85 – Walking, everyday wear",
     image: "./images/pic-4.png",
     brand: "Reebok brand",
@@ -40,7 +40,7 @@ export const products = [
     isLiked: false,
   },
   {
-    id: +"05",
+    id: "05",
     name: "Reebok Men's Ex-o-fit - Hi Sneaker",
     image: "./images/pic-5.png",
     brand: "Reebok brand",
@@ -50,7 +50,7 @@ export const products = [
     isLiked: false,
   },
   {
-    id: +"06",
+    id: "06",
     name: "Air Jordan 1 – Walking, everyday wear",
     image: "./images/pic-6.png",
     brand: "Nike brand",
