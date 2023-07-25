@@ -6,7 +6,7 @@ const productInfoContainer = document.querySelector(".product-info");
 
 let current;
 let likedProduct = products.filter((el) => el.isLiked === true) || [];
-console.log(likedProduct);
+console.log(products);
 // let currentId;
 // console.log(current);
 function renderProductBar() {
@@ -27,10 +27,11 @@ function renderCurrentImage(current) {
     `;
   currentProductImage.insertAdjacentHTML("afterbegin", image);
 }
-function renderCurrentProduct(id = 1) {
-  current = products.find((el) => el.id === id);
-  // const isLiked = likedProduct.find((el) => el.id === id);
+function renderCurrentProduct(id = 3) {
+  console.log(id);
   productInfoContainer.innerHTML = "";
+  current = products.find((el) => el.id === +id);
+  // const isLiked = likedProduct.find((el) => el.id === id);
   renderCurrentImage(current);
   const prodInfo = `
     <div class="flex items-center justify-between ">
@@ -81,15 +82,15 @@ function toggleLikedProduct(current) {
   if (current.isLiked) likedProduct.push(current);
   else {
     const index = likedProduct.findIndex((el) => el.id === current.id);
-    if (!(index == 1)) likedProduct.splice(index, 1);
+    if (index !== -1) likedProduct.splice(index, 1);
   }
   localStorage.setItem("likedProduct", JSON.stringify(likedProduct));
-  console.log(likedProduct);
 }
 function addLikedProduct(current) {
   productInfoContainer.addEventListener("click", (e) => {
     const clicked = e.target.closest(".fav");
     if (!clicked) return;
+    console.log(current);
     current.isLiked = !current.isLiked;
     toggleLoveBtn(current);
     toggleLikedProduct(current);
@@ -113,7 +114,7 @@ productBar.addEventListener("click", showCurrentProduct);
 
 // On Load
 function onLoad() {
-  if (!localStorage.getItem("currentId")) return 1;
+  if (!localStorage.getItem("currentId")) return renderCurrentProduct();
   const id = JSON.parse(localStorage.getItem("currentId"));
   renderCurrentProduct(id);
   addLikedProduct(current);
