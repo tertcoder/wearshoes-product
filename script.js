@@ -26,6 +26,13 @@ function renderCurrentImage(current) {
   const image = `
     <img src="${current.image}" alt="" data-id="${current.id}" class="rounded-md rounded-b-none rounded-r-none ">
     `;
+
+  const img = productBar.querySelectorAll("img");
+  img.forEach((img) => {
+    if (img.dataset.id === current.id)
+      img.classList.add("border-2", "border-orange-400");
+  });
+
   currentProductImage.insertAdjacentHTML("afterbegin", image);
 }
 
@@ -109,8 +116,9 @@ function toggleLoveBtn(current) {
 
 // Current Product style on product bar
 function activeProduct(e) {
+  const img = productBar.querySelectorAll("img");
+  img.forEach((img) => img.classList.remove("border-2", "border-orange-400"));
   const clicked = e.target.closest("#product");
-  clicked.classList.remove("border-2", "border-orange-400");
   if (!clicked) return;
   clicked.classList.add("border-2", "border-orange-400");
 }
