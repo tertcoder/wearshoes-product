@@ -40,13 +40,13 @@ function renderCurrentProduct(id = "01") {
         class="block px-2 py-1 text-xs text-orange-400 font-bold border-2 border-orange-400 rounded-full ">${
           current.new ? "NEW" : "Out of Stock"
         }</span>
-      <div class="relative w-8 h-8 fav" id=${current.id}>
+      <button class="relative w-8 h-8 fav" id=${current.id}>
      
         <img src="./images/${
           current.isLiked ? "" : "non"
         }like.svg" class="duration-150 w-8 h-8 favSVG" alt=""></img>
       
-      </div>
+      </button>
     </div>
     <p class="mt-2 text-lg brand md:text-base md1:text-lg text-stone-500">${
       current.brand
@@ -106,6 +106,15 @@ function toggleLoveBtn(current) {
   const loveSvg = loveBtn.querySelector("img");
   loveSvg.src = `./images/${current.isLiked ? "" : "non"}like.svg`;
 }
+
+// Current Product style on product bar
+function activeProduct(e) {
+  const clicked = e.target.closest("#product");
+  clicked.classList.remove("border-2", "border-orange-400");
+  if (!clicked) return;
+  clicked.classList.add("border-2", "border-orange-400");
+}
+productBar.addEventListener("click", activeProduct);
 
 // Making functional the function renderCurrentProduct() to every click to the element from the product bar
 function showCurrentProduct(e) {
