@@ -148,6 +148,12 @@ function activeProduct(e) {
     img.classList.remove("border-2", "border-orange-400", "scale-110")
   );
   clickedEl.classList.add("border-2", "border-orange-400", "scale-110");
+
+  const elements = sizeContainer.querySelectorAll("button");
+  elements.forEach((el) => {
+    el.classList.remove("border-orange-300");
+  });
+  elements[0].classList.replace("border-stone-200", "border-orange-300");
 }
 productBar.addEventListener("click", activeProduct);
 
