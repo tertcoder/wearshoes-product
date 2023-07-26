@@ -13,7 +13,7 @@ function renderProductBar() {
   const element = products
     .map(
       (prod) => ` 
-    <img src="${prod.image}" alt="" id="product"  data-id="${prod.id}" class="shadow-md object-cover w-24 rounded-md">
+    <img src="${prod.image}" alt="" id="product"  data-id="${prod.id}" class="duration-150  shadow-md object-cover w-24 rounded-md">
     `
     )
     .join("");
@@ -30,7 +30,7 @@ function renderCurrentImage(current) {
   const img = productBar.querySelectorAll("img");
   img.forEach((img) => {
     if (img.dataset.id === current.id)
-      img.classList.add("border-2", "border-orange-400");
+      img.classList.add("border-2", "border-orange-400", "scale-110");
   });
 
   currentProductImage.insertAdjacentHTML("afterbegin", image);
@@ -117,10 +117,12 @@ function toggleLoveBtn(current) {
 // Current Product style on product bar
 function activeProduct(e) {
   const img = productBar.querySelectorAll("img");
-  img.forEach((img) => img.classList.remove("border-2", "border-orange-400"));
+  img.forEach((img) =>
+    img.classList.remove("border-2", "border-orange-400", "scale-110")
+  );
   const clicked = e.target.closest("#product");
   if (!clicked) return;
-  clicked.classList.add("border-2", "border-orange-400");
+  clicked.classList.add("border-2", "border-orange-400", "scale-110");
 }
 productBar.addEventListener("click", activeProduct);
 
