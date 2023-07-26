@@ -3,13 +3,14 @@ import { products } from "./products.js";
 const productBar = document.querySelector(".product-bar");
 const currentProductImage = document.querySelector(".currentProductImage");
 const productInfoContainer = document.querySelector(".product-info");
+const sizeContainer = document.querySelector(".size-container");
 
 let current;
 let likedProduct = products.filter((el) => el.isLiked === true) || [];
 
 // Adding the product images bar on the page
 function renderProductBar() {
-  productBar.innerHTML = "";
+  productBar.textContent = "";
   const element = products
     .map(
       (prod) => ` 
@@ -22,7 +23,7 @@ function renderProductBar() {
 
 // Adding the current Image of the product selected on the page
 function renderCurrentImage(current) {
-  currentProductImage.innerHTML = "";
+  currentProductImage.textContent = "";
   const image = `
     <img src="${current.image}" alt="" data-id="${current.id}" class="rounded-md rounded-b-none rounded-r-none ">
     `;
@@ -38,7 +39,7 @@ function renderCurrentImage(current) {
 
 // Adding information about the current product selected  and calling the function to render the current image
 function renderCurrentProduct(id = "01") {
-  productInfoContainer.innerHTML = "";
+  productInfoContainer.textContent = "";
   current = products.find((el) => el.id === id);
   renderCurrentImage(current);
   const prodInfo = `
@@ -76,7 +77,7 @@ function renderCurrentProduct(id = "01") {
         class="absolute text-sm underline duration-150 translate-y-6 md:text-xs md1:text-sm text-stone-400 hover:text-stone-500">Rate
         now</a>
     </div>
-    <div class="mt-10 mb-4 price lg:mb-4 lg:mt-10">
+    <div class="mt-10 mb-4 price lg:mb-4 lg:mt-10 price">
       <span class="text-xl font-semibold md:text-lg md1:text-xl text-stone-900">$</span>
       <span class="text-6xl font-bold md:text-4xl text-stone-900 md1:text-6xl pricing">${
         current.price
@@ -114,15 +115,39 @@ function toggleLoveBtn(current) {
   loveSvg.src = `./images/${current.isLiked ? "" : "non"}like.svg`;
 }
 
+// Changing size
+function changePricePerSize(current, rate) {
+  const fixedPrice = current.price;
+  const priceContainer = productInfoContainer.querySelector(".price");
+  const priceValue = priceContainer.querySelector(".pricing");
+  priceValue.textContent = `${(fixedPrice * rate).toFixed(2)}`;
+}
+function changeStylePerSize(e) {
+  const clickedEl = e.target.closest("button");
+  if (!clickedEl) return;
+  const elements = sizeContainer.querySelectorAll("button");
+  elements.forEach((el) => {
+    el.classList.remove("border-orange-300");
+    if (!el.classList.contains("border-stone-200"))
+      el.classList.add("border-stone-200");
+  });
+
+  clickedEl.classList.replace("border-stone-200", "border-orange-300");
+
+  const rate = +clickedEl.dataset.priceRate;
+  changePricePerSize(current, rate);
+}
+sizeContainer.addEventListener("click", changeStylePerSize);
+
 // Current Product style on product bar
 function activeProduct(e) {
+  const clickedEl = e.target.closest("#product");
+  if (!clickedEl) return;
   const img = productBar.querySelectorAll("img");
   img.forEach((img) =>
     img.classList.remove("border-2", "border-orange-400", "scale-110")
   );
-  const clicked = e.target.closest("#product");
-  if (!clicked) return;
-  clicked.classList.add("border-2", "border-orange-400", "scale-110");
+  clickedEl.classList.add("border-2", "border-orange-400", "scale-110");
 }
 productBar.addEventListener("click", activeProduct);
 
