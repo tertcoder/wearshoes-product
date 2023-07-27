@@ -1,4 +1,9 @@
 import { products } from "./products.js";
+import { AppStorage } from "./storage.js";
+
+const storage = new AppStorage()
+
+storage.saveItem("products", products)
 
 const productBar = document.querySelector(".product-bar");
 const currentProductImage = document.querySelector(".currentProductImage");
