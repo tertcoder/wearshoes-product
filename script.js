@@ -1,9 +1,9 @@
 import { products } from "./products.js";
 import { AppStorage } from "./storage.js";
 
-const storage = new AppStorage()
+const storage = new AppStorage();
 
-storage.saveItem("products", products)
+storage.saveItem("products", products);
 
 const productBar = document.querySelector(".product-bar");
 const currentProductImage = document.querySelector(".currentProductImage");
@@ -11,14 +11,14 @@ const productInfoContainer = document.querySelector(".product-info");
 const sizeContainer = document.querySelector(".size-container");
 
 let current;
-let likedProduct = products.filter((el) => el.isLiked === true) || [];
+let likedProduct = products.filter(el => el.isLiked === true) || [];
 
 // Adding the product images bar on the page
 function renderProductBar() {
   productBar.textContent = "";
   const element = products
     .map(
-      (prod) => ` 
+      prod => ` 
     <img src="${prod.image}" alt="" id="product"  data-id="${prod.id}" class="duration-150  shadow-md object-cover w-24 rounded-md">
     `
     )
@@ -34,7 +34,7 @@ function renderCurrentImage(current) {
     `;
 
   const img = productBar.querySelectorAll("img");
-  img.forEach((img) => {
+  img.forEach(img => {
     if (img.dataset.id === current.id)
       img.classList.add("border-2", "border-orange-400", "scale-110");
   });
@@ -45,7 +45,7 @@ function renderCurrentImage(current) {
 // Adding information about the current product selected  and calling the function to render the current image
 function renderCurrentProduct(id = "01") {
   productInfoContainer.textContent = "";
-  current = products.find((el) => el.id === id);
+  current = products.find(el => el.id === id);
   renderCurrentImage(current);
   const prodInfo = `
     <div class="flex items-center justify-between ">
@@ -96,7 +96,7 @@ function renderCurrentProduct(id = "01") {
 function toggleLikedProduct(current) {
   if (current.isLiked) likedProduct.push(current);
   else {
-    const index = likedProduct.findIndex((el) => el.id === current.id);
+    const index = likedProduct.findIndex(el => el.id === current.id);
     if (index !== -1) likedProduct.splice(index, 1);
   }
   localStorage.setItem("likedProduct", JSON.stringify(likedProduct));
@@ -104,7 +104,7 @@ function toggleLikedProduct(current) {
 
 // Making functional the two function toggleLikedProduct() & toggleLoveBtn() on every click to the bookmark btn
 function addLikedProduct(current) {
-  productInfoContainer.addEventListener("click", (e) => {
+  productInfoContainer.addEventListener("click", e => {
     const clicked = e.target.closest(".fav");
     if (!clicked) return;
     current.isLiked = !current.isLiked;
@@ -131,7 +131,7 @@ function changeStylePerSize(e) {
   const clickedEl = e.target.closest("button");
   if (!clickedEl) return;
   const elements = sizeContainer.querySelectorAll("button");
-  elements.forEach((el) => {
+  elements.forEach(el => {
     el.classList.remove("border-orange-300");
     if (!el.classList.contains("border-stone-200"))
       el.classList.add("border-stone-200");
@@ -149,13 +149,13 @@ function activeProduct(e) {
   const clickedEl = e.target.closest("#product");
   if (!clickedEl) return;
   const img = productBar.querySelectorAll("img");
-  img.forEach((img) =>
+  img.forEach(img =>
     img.classList.remove("border-2", "border-orange-400", "scale-110")
   );
   clickedEl.classList.add("border-2", "border-orange-400", "scale-110");
 
   const elements = sizeContainer.querySelectorAll("button");
-  elements.forEach((el) => {
+  elements.forEach(el => {
     el.classList.remove("border-orange-300");
   });
   elements[0].classList.replace("border-stone-200", "border-orange-300");
